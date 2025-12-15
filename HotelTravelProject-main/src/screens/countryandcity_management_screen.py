@@ -32,7 +32,7 @@ class CountryAndCityManagementScreen(tk.Frame):
         self.master = master
         self.on_back = on_back
 
-        # ================= BACKGROUND =================
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -48,7 +48,7 @@ class CountryAndCityManagementScreen(tk.Frame):
         except:
             self.configure(bg="white")
 
-        # ================= UI =================
+        # UI
         self.country_listbox = tk.Listbox(self, width=30, height=15, font=("Arial", 11))
         self.country_listbox.place(relx=0.25, rely=0.32, anchor="n")
         self.country_listbox.bind("<<ListboxSelect>>", self.on_country_selected)
@@ -87,7 +87,7 @@ class CountryAndCityManagementScreen(tk.Frame):
 
         self.load_countries()
 
-    # ================= LOAD =================
+    # LOAD
     def load_countries(self):
         self.country_listbox.delete(0, tk.END)
 
@@ -123,7 +123,7 @@ class CountryAndCityManagementScreen(tk.Frame):
 
         conn.close()
 
-    # ================= COUNTRY CRUD =================
+    # COUNTRY CRUD
     def add_country(self):
         name = self.country_entry.get().strip()
         if not name:
@@ -182,7 +182,7 @@ class CountryAndCityManagementScreen(tk.Frame):
         self.load_countries()
         self.city_listbox.delete(0, tk.END)
 
-    # ================= CITY CRUD =================
+    # CITY CRUD
     def add_city(self):
         country = self.country_combo_for_city.get()
         city = self.city_entry.get().strip()
@@ -272,7 +272,7 @@ class CountryAndCityManagementScreen(tk.Frame):
 
 
 
-    # ================= EVENTS =================
+    #  EVENTS
     def on_country_selected(self, event=None):
         sel = self.country_listbox.curselection()
         if not sel:

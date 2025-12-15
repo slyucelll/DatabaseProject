@@ -42,7 +42,7 @@ class TravelMenuScreen(tk.Frame):
         self.master = master
         self.on_back = on_back
 
-        # ==== BACKGROUND ====
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -58,9 +58,9 @@ class TravelMenuScreen(tk.Frame):
 
 
 
-        # ==== 2x2 BUTTON GRID ====
 
-        # SOL ÜST - Create Travel Plan
+
+        #  - Create Travel Plan
         btn1 = ModernButton(
             self,
             text="Create Travel Plan",
@@ -69,7 +69,7 @@ class TravelMenuScreen(tk.Frame):
         )
         btn1.place(relx=0.38, rely=0.40, anchor="center")
 
-        # SAĞ ÜST - My Travel Plans
+        #  - My Travel Plans
         btn2 = ModernButton(
             self,
             text="My Travel Plans",
@@ -78,7 +78,7 @@ class TravelMenuScreen(tk.Frame):
         )
         btn2.place(relx=0.62, rely=0.40, anchor="center")
 
-        # SOL ALT - Search Hotels
+        # - Search Hotels
         btn3 = ModernButton(
             self,
             text="Search Hotels",
@@ -88,7 +88,7 @@ class TravelMenuScreen(tk.Frame):
         btn3.place(relx=0.38, rely=0.55, anchor="center")
 
 
-        # SAĞ ALT - My Reservations
+        #  - My Reservations
         btn4 = ModernButton(
             self,
             text="My Reservations",
@@ -97,7 +97,7 @@ class TravelMenuScreen(tk.Frame):
         )
         btn4.place(relx=0.62, rely=0.55, anchor="center")
 
-        # ==== BACK BUTTON ====
+
         back_btn = ModernButton(
             self,
             text="← Back",
@@ -107,7 +107,7 @@ class TravelMenuScreen(tk.Frame):
         back_btn.place(relx=0.22, rely=0.70)
 
 
-    # ===== HANDLERS =====
+
     def on_create_travel_plan(self):
         messagebox.showinfo("Create Travel Plan", "Create Travel Plan screen will be implemented.")
 

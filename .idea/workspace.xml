@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edb4cb29-1dda-4cb6-9f3e-eebd78a6758f" name="Changes" comment="" />
+    <list default="true" id="edb4cb29-1dda-4cb6-9f3e-eebd78a6758f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/HotelTravelProject-main/images/register2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/images/register_screen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/images/travel.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/main_src.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/main_src.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/admin_login_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/admin_login_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/admin_menu_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/admin_menu_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/countryandcity_management_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/countryandcity_management_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/create_travel_plan_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/create_travel_plan_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/hotel_management_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/hotel_management_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/payment_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/payment_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/register_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/register_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/reservations_management_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/reservations_management_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/reservations_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/reservations_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/room_management_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/room_management_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/search_hotels_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/search_hotels_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/travel_menu_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/travel_menu_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/travel_plans_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/travel_plans_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/user_login_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/user_login_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/users_management_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/users_management_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/welcome_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelTravelProject-main/src/screens/welcome_screen.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +42,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "slyucelll"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/slyucelll/DatabaseProject.git",
+    "accountId": "b44d6b7b-df82-46aa-9790-c48c13881916"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -28,20 +62,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.admin_login_screen.executor&quot;: &quot;Run&quot;,
-    &quot;Python.db.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main_app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_src.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.room_management_screen.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Downloads/HotelTravelProject/HotelTravelProject-main/images&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.admin_login_screen.executor": "Run",
+    "Python.db.executor": "Run",
+    "Python.main.executor": "Debug",
+    "Python.main_app.executor": "Run",
+    "Python.main_src.executor": "Debug",
+    "Python.room_management_screen.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Hp/Downloads/HotelTravelProject/HotelTravelProject-main/images"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Hp\Downloads\HotelTravelProject\HotelTravelProject-main\images" />

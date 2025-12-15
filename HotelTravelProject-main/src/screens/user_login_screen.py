@@ -6,7 +6,6 @@ import os
 from database.db import get_connection
 
 
-# ===== MODERN BUTTON =====
 class ModernButton(tk.Button):
     def __init__(self, master=None, **kwargs):
         super().__init__(
@@ -26,7 +25,7 @@ class ModernButton(tk.Button):
         self.bind("<Leave>", lambda e: self.config(bg="#ffffff"))
 
 
-# ===== USER LOGIN SCREEN =====
+
 class UserLoginScreen(tk.Frame):
     def __init__(self, master, on_back, *args, **kwargs):
         super().__init__(master, *args, **kwargs)

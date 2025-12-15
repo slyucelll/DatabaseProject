@@ -33,7 +33,7 @@ class RoomManagementScreen(tk.Frame):
         self.roomtype_map = {}
         self.rows = []
 
-        # ================= BACKGROUND =================
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -46,12 +46,12 @@ class RoomManagementScreen(tk.Frame):
                 x=0, y=0, relwidth=1, relheight=1
             )
 
-        # ================= LISTBOX =================
+
         self.room_listbox = tk.Listbox(self, width=50, height=18, font=("Arial", 12))
         self.room_listbox.place(x=80, y=170)
         self.room_listbox.bind("<<ListboxSelect>>", self.on_select)
 
-        # ================= INPUTS =================
+
         self.hotel_combo = ttk.Combobox(self, state="readonly", width=30)
         self.hotel_combo.place(x=830, y=185)
 
@@ -73,7 +73,7 @@ class RoomManagementScreen(tk.Frame):
         )
         self.capacity_combo.place(x=830, y=380)
 
-        # ================= BUTTONS =================
+
         ModernButton(self, text="Add Room", command=self.add_room).place(x=640, y=470)
         ModernButton(self, text="Update Selected", command=self.update_room).place(x=840, y=470)
         ModernButton(self, text="Delete Selected", command=self.delete_room).place(x=1030, y=470)
@@ -83,7 +83,7 @@ class RoomManagementScreen(tk.Frame):
         self.load_room_types()
         self.load_rooms()
 
-    # ================= LOADS =================
+
     def load_hotels(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -137,7 +137,7 @@ class RoomManagementScreen(tk.Frame):
                 f"{r.Capacity}p • €{r.PricePerNight}"
             )
 
-    # ================= ROOMTYPE CHANGE → PRICE FROM DB =================
+
     def on_roomtype_change(self, event):
         room_type = self.room_type_combo.get()
         if not room_type:
@@ -157,7 +157,7 @@ class RoomManagementScreen(tk.Frame):
             self.price_entry.delete(0, tk.END)
             self.price_entry.insert(0, f"{row.PricePerNight:.2f}")
 
-    # ================= SELECT =================
+
     def on_select(self, event):
         sel = self.room_listbox.curselection()
         if not sel:
@@ -180,7 +180,7 @@ class RoomManagementScreen(tk.Frame):
                 self.hotel_combo.set(name)
                 break
 
-    # ================= ADD ROOM =================
+
     def add_room(self):
         hotel_name = self.hotel_combo.get()
         room_type = self.room_type_combo.get()
@@ -276,7 +276,7 @@ class RoomManagementScreen(tk.Frame):
         self.load_rooms()
         messagebox.showinfo("Updated", "Room updated successfully.")
 
-    # ================= DELETE ROOM =================
+
     def delete_room(self):
         if not self.current_room_id:
             return

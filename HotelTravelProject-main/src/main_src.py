@@ -39,7 +39,7 @@ class App(tk.Tk):
             self.current_screen.destroy()
             self.current_screen = None
 
-    # ========== WELCOME ==========
+
     def show_welcome(self):
         print("DEBUG: show_welcome called")
         self.clear_screen()
@@ -50,7 +50,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== ADMIN LOGIN ==========
+
     def show_admin_login(self):
         print("DEBUG: show_admin_login called")
         self.clear_screen()
@@ -60,7 +60,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== ADMIN MENU ==========
+
     def show_admin_menu(self):
         print("DEBUG: show_admin_menu called")
         from screens.admin_menu_screen import AdminMenuScreen
@@ -71,7 +71,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== COUNTRY & CITY MGMT ==========
+
     def show_country_city_mgmt(self):
         print("DEBUG: show_country_city_mgmt called")
         from screens.countryandcity_management_screen import CountryAndCityManagementScreen
@@ -79,7 +79,7 @@ class App(tk.Tk):
         self.current_screen = CountryAndCityManagementScreen(master=self, on_back=self.show_admin_menu)
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== USER LOGIN ==========
+
     def show_user_login(self):
         print("DEBUG: show_user_login called")
         self.clear_screen()
@@ -89,7 +89,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== REGISTER ==========
+
     def show_register(self):
         print("DEBUG: show_register called")
         self.clear_screen()
@@ -125,16 +125,16 @@ class App(tk.Tk):
                 1  # IsActive
             ))
 
-            conn.commit()  # 🔥 EN KRİTİK SATIR
+            conn.commit()
             conn.close()
 
-            print("✅ DB'ye yazıldı:", fname, lname, email)
+            print(" DB'ye yazıldı:", fname, lname, email)
 
         except Exception as e:
-            print("❌ Register error:", e)
+            print("Register error:", e)
             raise
 
-    # ========== TRAVEL MENU ==========
+
     def show_travel_menu(self):
         print("DEBUG: show_travel_menu called")
         self.clear_screen()
@@ -144,7 +144,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== CREATE TRAVEL PLAN ==========
+
     def show_create_travel_plan(self):
         print("DEBUG: show_create_travel_plan called")
         self.clear_screen()
@@ -154,7 +154,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== MY TRAVEL PLANS ==========
+
     def show_my_travel_plans(self):
         print("DEBUG: show_my_travel_plans called")
         self.clear_screen()
@@ -164,7 +164,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== MY RESERVATIONS ==========
+
     def show_my_reservations(self):
         print("DEBUG: show_my_reservations called")
         self.clear_screen()
@@ -174,7 +174,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== SEARCH HOTEL ==========
+
 
     def show_search_hotel(self, plan_data=None):
         print("DEBUG: show_search_hotel called")
@@ -186,7 +186,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== RESERVATION YÖNETİMİ (USER TARAFI) ==========
+
     def add_reservation(self, reservation_data: dict) -> int:
         reservation = {
             "id": self.next_reservation_id,
@@ -201,7 +201,7 @@ class App(tk.Tk):
     def get_reservations_for_current_user(self):
         return [r for r in self.reservations if r["user_id"] == self.current_user_id]
 
-    # ========== PAYMENT ==========
+
     def show_payment(self):
         print("DEBUG: show_payment called")
         self.clear_screen()
@@ -211,7 +211,7 @@ class App(tk.Tk):
         )
         self.current_screen.pack(fill="both", expand=True)
 
-    # ========== ADMIN MANAGEMENT SCREENS (ileri için) ==========
+
     def show_hotel_mgmt(self):
         print("DEBUG: show_hotel_mgmt called")
         from screens.hotel_management_screen import HotelManagementScreen

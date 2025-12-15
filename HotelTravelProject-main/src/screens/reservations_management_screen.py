@@ -30,7 +30,7 @@ class ReservationsManagementScreen(tk.Frame):
         self.master = master
         self.on_back = on_back
 
-        # ================= BACKGROUND =================
+
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
         bg_path = os.path.join(base_dir, "images", "reservation4.jpg")
 
@@ -42,17 +42,17 @@ class ReservationsManagementScreen(tk.Frame):
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
         bg_label.lower()  # en arkaya at
 
-        # ================= STATE =================
+        #  STATE
         self.current_reservation_id = None
         self.current_status = None
         self.roomtype_map = {}
 
-        # ================= LIST =================
+        #  LIST
         self.listbox = tk.Listbox(self, width=120, height=16, font=("Arial", 11))
         self.listbox.place(x=40, y=40)
         self.listbox.bind("<<ListboxSelect>>", self.on_select)
 
-        # ================= FORM (LABEL YOK) =================
+        # FORM
         self.res_id_entry = tk.Entry(self, width=10, state="readonly")
         self.res_id_entry.place(x=230, y=455)
 
@@ -74,7 +74,7 @@ class ReservationsManagementScreen(tk.Frame):
         self.price_entry = tk.Entry(self, width=12)
         self.price_entry.place(x=1033, y=570)
 
-        # ================= BUTTONS =================
+        #  BUTTONS
         ModernButton(self, text="Update Selected", command=self.update_reservation)\
             .place(x=760, y=600)
 
@@ -87,7 +87,7 @@ class ReservationsManagementScreen(tk.Frame):
         self.load_roomtypes()
         self.load_reservations()
 
-    # ==================================================
+
     def load_roomtypes(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -100,7 +100,7 @@ class ReservationsManagementScreen(tk.Frame):
         conn.close()
         self.room_type_combo["values"] = names
 
-    # ==================================================
+
     def load_reservations(self):
         self.listbox.delete(0, tk.END)
 
@@ -134,7 +134,7 @@ class ReservationsManagementScreen(tk.Frame):
                 f"{r.TotalPrice} € • {r.StatusName}"
             )
 
-    # ==================================================
+
     def on_select(self, event):
         sel = self.listbox.curselection()
         if not sel:
@@ -162,7 +162,7 @@ class ReservationsManagementScreen(tk.Frame):
         self.price_entry.delete(0, tk.END)
         self.price_entry.insert(0, r.TotalPrice)
 
-    # ==================================================
+
     def update_reservation(self):
         if not self.current_reservation_id:
             messagebox.showwarning("Update", "Select a reservation first.")
@@ -247,7 +247,7 @@ class ReservationsManagementScreen(tk.Frame):
         messagebox.showinfo("Updated", "Reservation updated successfully.")
         self.load_reservations()
 
-    # ==================================================
+
     def cancel_reservation(self):
         if not self.current_reservation_id:
             messagebox.showwarning("Cancel", "Select a reservation first.")

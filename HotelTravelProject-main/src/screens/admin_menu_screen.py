@@ -46,25 +46,25 @@ class AdminMenuScreen(tk.Frame):
         else:
             self.configure(bg="white")
 
-        # ===============================
-        #        DASHBOARD LABELS
-        # ===============================
+
+        # DASHBOARD LABELS
+
 
         self.lbl_total_users = tk.Label(self, text="0", font=("Arial", 12, "bold"), bg="#ffffff")
         self.lbl_active_res = tk.Label(self, text="0", font=("Arial", 12, "bold"), bg="#ffffff")
         self.lbl_total_hotels = tk.Label(self, text="0", font=("Arial", 12, "bold"), bg="#ffffff")
         self.lbl_today_res = tk.Label(self, text="0", font=("Arial", 12, "bold"), bg="#ffffff")
 
-        # Positions (resme göre ayarlı)
+
         self.lbl_total_users.place(relx=0.32, rely=0.32, anchor="w")
         self.lbl_active_res.place(relx=0.37, rely=0.42, anchor="w")
 
         self.lbl_total_hotels.place(relx=0.72, rely=0.32, anchor="w")
         self.lbl_today_res.place(relx=0.76, rely=0.42, anchor="w")
 
-        # ===============================
-        #        MANAGEMENT BUTTONS
-        # ===============================
+
+        # MANAGEMENT BUTTONS
+
 
         ModernButton(
             self, text="Country & City Management", width=25,
@@ -96,10 +96,10 @@ class AdminMenuScreen(tk.Frame):
             command=self.on_back
         ).place(relx=0.15, rely=0.85, anchor="w")
 
-        # İlk yükleme + otomatik güncelleme
+
         self.load_dashboard_stats()
 
-    # ==================================================
+
     def load_dashboard_stats(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -132,5 +132,5 @@ class AdminMenuScreen(tk.Frame):
 
         conn.close()
 
-        # 🔄 her 5 saniyede bir otomatik güncelle
+
         self.after(5000, self.load_dashboard_stats)

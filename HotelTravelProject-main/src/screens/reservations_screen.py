@@ -36,11 +36,11 @@ class MyReservationsScreen(tk.Frame):
         self.current_reservation_id = None
         self.current_status_id = None
 
-        # 🔑 STATUS MAP (DB’den dolacak)
+        #  STATUS MAP (DB’den)
         self.status_id_to_name = {}
         self.status_name_to_id = {}
 
-        # ================= BACKGROUND =================
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -51,7 +51,7 @@ class MyReservationsScreen(tk.Frame):
             self.bg_image = ImageTk.PhotoImage(img)
             tk.Label(self, image=self.bg_image).place(x=0, y=0, relwidth=1, relheight=1)
 
-        # ================= PLAN COMBO =================
+
         self.plan_combo = ttk.Combobox(
             self,
             state="readonly",
@@ -61,7 +61,7 @@ class MyReservationsScreen(tk.Frame):
         self.plan_combo.place(relx=0.41, rely=0.26, anchor="w")
         self.plan_combo.bind("<<ComboboxSelected>>", self.load_by_plan_name)
 
-        # ================= FORM =================
+
         self.hotel_name_entry = tk.Entry(self, width=30, font=("Arial", 12))
         self.hotel_name_entry.place(relx=0.56, rely=0.34, anchor="center")
 
@@ -96,20 +96,20 @@ class MyReservationsScreen(tk.Frame):
         )
         self.payment_status_combo.place(relx=0.35, rely=0.73, anchor="w")
 
-        # ================= BUTTONS =================
+
         ModernButton(self, text="← Back", width=10, command=self.on_back)\
             .place(relx=0.20, rely=0.86, anchor="center")
 
         ModernButton(self, text="Cancel Reservation", width=18, command=self.cancel_reservation)\
             .place(relx=0.80, rely=0.86, anchor="center")
 
-        # 🔥 LOAD DATA
+        #  LOAD DATA
         self.load_statuses()
         self.load_plan_names()
 
-    # ==================================================
+
     # LOAD STATUS FROM DB (ReservationStatus)
-    # ==================================================
+
     def load_statuses(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -125,9 +125,9 @@ class MyReservationsScreen(tk.Frame):
 
         self.payment_status_combo["values"] = names
 
-    # ==================================================
+
     # LOAD PLAN NAMES
-    # ==================================================
+
     def load_plan_names(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -141,9 +141,9 @@ class MyReservationsScreen(tk.Frame):
         self.plan_combo["values"] = [r.PlanName for r in cur.fetchall()]
         conn.close()
 
-    # ==================================================
+
     # LOAD RESERVATION
-    # ==================================================
+
     def load_by_plan_name(self, event=None):
         plan_name = self.plan_combo.get()
         if not plan_name:
@@ -202,14 +202,20 @@ class MyReservationsScreen(tk.Frame):
             self.status_id_to_name.get(r.StatusId, "")
         )
 
-    # ==================================================
-    # CANCEL RESERVATION
-    # ==================================================
     def cancel_reservation(self):
         if not self.current_reservation_id:
             messagebox.showwarning("Cancel", "No reservation selected.")
             return
 
+        #  ZATEN CANCELLED İSE
+        if self.current_status_id == self.status_name_to_id.get("Cancelled"):
+            messagebox.showwarning(
+                "Cancel",
+                "This reservation is already cancelled."
+            )
+            return
+
+        #  PAID İSE
         if self.current_status_id == self.status_name_to_id.get("Paid"):
             messagebox.showerror(
                 "Cancel",

@@ -52,7 +52,7 @@ class AdminLoginScreen(tk.Frame):
         )
 
         if not os.path.exists(img_path):
-            print("❌ Foto bulunamadı:", img_path)
+            print(" Foto bulunamadı:", img_path)
 
         img = Image.open(img_path).resize((1200, 700))
         self.bg_image = ImageTk.PhotoImage(img)

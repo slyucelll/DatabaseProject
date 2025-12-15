@@ -37,7 +37,7 @@ class SearchHotelsScreen(tk.Frame):
 
         self.city = self.plan_data.get("city")
 
-        # ================= BACKGROUND =================
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -48,7 +48,7 @@ class SearchHotelsScreen(tk.Frame):
             self.bg_image = ImageTk.PhotoImage(img)
             tk.Label(self, image=self.bg_image).place(x=0, y=0, relwidth=1, relheight=1)
 
-        # ================= SEARCH =================
+
         self.search_entry = tk.Entry(self, width=30, font=("Arial", 12))
         self.search_entry.place(relx=0.30, rely=0.32, anchor="w")
 
@@ -79,16 +79,16 @@ class SearchHotelsScreen(tk.Frame):
         ModernButton(self, text="Save Plan", width=7, command=self.save_plan)\
             .place(relx=0.72, rely=0.80, anchor="center")
 
-        # ❌ otomatik search YOK
 
-    # ==================================================
+
+
     def on_search_click(self):
         self.user_triggered_search = True
         self.search_hotels()
 
-    # ==================================================
+
     # CITY → CITY ID
-    # ==================================================
+
     def _resolve_city_id(self, city_name):
         conn = get_connection()
         cur = conn.cursor()
@@ -101,9 +101,7 @@ class SearchHotelsScreen(tk.Frame):
         conn.close()
         return row[0] if row else None
 
-    # ==================================================
-    # SEARCH LOGIC
-    # ==================================================
+
     def search_hotels(self):
         self.results_list.delete(0, tk.END)
 
@@ -138,9 +136,7 @@ class SearchHotelsScreen(tk.Frame):
         for r in rows:
             self.results_list.insert(tk.END, r.HotelName)
 
-    # ==================================================
-    # SAVE PLAN
-    # ==================================================
+
     def save_plan(self):
         if self.from_menu:
             messagebox.showinfo("Info", "This action is only for travel plans.")

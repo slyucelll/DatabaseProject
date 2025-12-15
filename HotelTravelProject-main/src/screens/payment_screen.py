@@ -38,7 +38,7 @@ class PaymentScreen(tk.Frame):
             self.on_back()
             return
 
-        # ===== BACKGROUND =====
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -51,7 +51,7 @@ class PaymentScreen(tk.Frame):
                 x=0, y=0, relwidth=1, relheight=1
             )
 
-        # ===== CARD NUMBER (MAX 16 DIGITS) =====
+        #  CARD NUMBER (MAX 16 DIGITS)
         vcmd = (self.register(self.validate_card), "%P")
         self.card_number_entry = tk.Entry(
             self, width=25, font=("Arial", 13),
@@ -85,7 +85,7 @@ class PaymentScreen(tk.Frame):
             command=self.on_back
         ).place(relx=0.23, rely=0.78, anchor="center")
 
-    # ================= CARD VALIDATION =================
+    #  CARD VALIDATION
     def validate_card(self, value):
         if value == "":
             return True
@@ -93,9 +93,9 @@ class PaymentScreen(tk.Frame):
             return False
         return len(value) <= 16
 
-    # =================================
-    # PAYMENT + DB UPDATE
-    # =================================
+
+    # PAYMENT ve DB UPDATE
+
     def pay_now(self):
         card_no = self.card_number_entry.get().strip()
         holder = self.card_holder_entry.get().strip()
@@ -138,7 +138,7 @@ class PaymentScreen(tk.Frame):
             conn = get_connection()
             cur = conn.cursor()
 
-            # 1️⃣ INSERT PAYMENT
+            # INSERT PAYMENT
             cur.execute("""
                 INSERT INTO Payments (
                     ReservationId,
@@ -153,7 +153,7 @@ class PaymentScreen(tk.Frame):
                 total_price
             ))
 
-            # 2️⃣ UPDATE RESERVATION STATUS → COMPLETED
+            #  UPDATE RESERVATION STATUS → COMPLETED
             cur.execute("""
                 SELECT StatusId
                 FROM ReservationStatus

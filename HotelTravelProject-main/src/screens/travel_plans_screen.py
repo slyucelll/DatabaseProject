@@ -26,7 +26,7 @@ class ModernButton(tk.Button):
         self.bind("<Leave>", lambda e: self.config(bg="#ffffff"))
 
 
-# ================= MY TRAVEL PLANS =================
+
 class MyTravelPlansScreen(tk.Frame):
     def __init__(self, master, on_back):
         super().__init__(master)
@@ -36,7 +36,6 @@ class MyTravelPlansScreen(tk.Frame):
         self.current_plan_id = None
         self.selected_hotel_id = None
 
-        # ================= BACKGROUND =================
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -49,7 +48,7 @@ class MyTravelPlansScreen(tk.Frame):
                 x=0, y=0, relwidth=1, relheight=1
             )
 
-        # ================= SEARCH =================
+
         self.search_combo = ttk.Combobox(
             self, state="readonly", width=28, font=("Arial", 12)
         )
@@ -59,7 +58,7 @@ class MyTravelPlansScreen(tk.Frame):
         ModernButton(self, text="SEARCH", command=self.on_plan_selected)\
             .place(relx=0.75, rely=0.30, anchor="center")
 
-        # ================= FORM =================
+
         self.plan_name_entry = tk.Entry(self, width=30, font=("Arial", 12))
         self.plan_name_entry.place(relx=0.42, rely=0.38, anchor="w")
 
@@ -94,7 +93,7 @@ class MyTravelPlansScreen(tk.Frame):
         self.clear_entries()
         self.load_travel_plans_to_combo()
 
-    # ================= HELPERS =================
+
     def get_user_id(self):
         return getattr(self.master, "current_user_id", None)
 
@@ -117,7 +116,7 @@ class MyTravelPlansScreen(tk.Frame):
         ):
             e.delete(0, tk.END)
 
-    # ================= LOAD COMBO =================
+
     def load_travel_plans_to_combo(self):
         uid = self.get_user_id()
         if not uid:
@@ -134,7 +133,7 @@ class MyTravelPlansScreen(tk.Frame):
         self.search_combo["values"] = [r.PlanName for r in cur.fetchall()]
         conn.close()
 
-    # ================= SELECT PLAN =================
+
     def on_plan_selected(self, event=None):
         uid = self.get_user_id()
         plan_name = self.search_combo.get()
@@ -187,7 +186,7 @@ class MyTravelPlansScreen(tk.Frame):
         self.guests_entry.insert(0, r.NumberOfPeople)
         self.budget_entry.insert(0, r.Budget)
 
-    # ================= MAKE RESERVATION =================
+
     def make_reservation(self):
         print(">>> MAKE RESERVATION CLICKED")
 
@@ -222,7 +221,7 @@ class MyTravelPlansScreen(tk.Frame):
         conn = get_connection()
         cur = conn.cursor()
 
-        # 🔒 CHECK EXISTING RESERVATION FOR THIS TRAVEL PLAN
+        #  CHECK EXISTING RESERVATION FOR THIS TRAVEL PLAN
         cur.execute("""
             SELECT
                 R.ReservationId,
@@ -257,7 +256,7 @@ class MyTravelPlansScreen(tk.Frame):
                 self.master.show_payment()
                 return
 
-            # 🔴 PAID / COMPLETED → BLOCK
+            #  PAID / COMPLETED → BLOCK
             else:
                 conn.close()
                 messagebox.showerror(

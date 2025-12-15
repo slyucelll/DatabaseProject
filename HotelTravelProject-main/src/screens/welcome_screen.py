@@ -10,7 +10,7 @@ class WelcomeScreen(tk.Frame):
         self.on_admin_login = on_admin_login
         self.on_user_login = on_user_login
 
-        # ==== BACKGROUND FOTOĞRAF ====
+
         image_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -24,24 +24,23 @@ class WelcomeScreen(tk.Frame):
         bg_label = tk.Label(self, image=self.bg_image)
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        # ==== BUTTONS DIRECTLY (NO FRAME) ====
 
-        # EKRAN GENİŞLİĞİNİ AL
-        screen_width = 1200  # sabit ekran genişliği
-        button_width_px = 220  # 20 karakter genişlik = yaklaşık 220px
-        spacing = 60  # iki buton arasındaki boşluk
 
-        # BUTONLARIN X KONUMU
 
-        shift_left = 50  # butonları sola kaydırma miktarı
+        screen_width = 1200
+        button_width_px = 220
+        spacing = 60
 
+
+
+        shift_left = 50
         left_button_x = (screen_width // 2) - button_width_px - (spacing // 2) - shift_left
         right_button_x = (screen_width // 2) + (spacing // 2) - shift_left
 
-        # BUTONLARIN Y KONUMU (sayfanın ortasından biraz aşağı)
-        y_position = 400   # bunu artırırsan butonlar daha aşağı iner
 
-        # ---- ADMIN BUTTON ----
+        y_position = 400
+
+
         self.admin_button = tk.Button(
             self,
             text="ADMIN LOGIN",
@@ -54,7 +53,7 @@ class WelcomeScreen(tk.Frame):
         )
         self.admin_button.place(x=left_button_x, y=y_position)
 
-        # ---- USER BUTTON ----
+
         self.user_button = tk.Button(
             self,
             text="USER LOGIN",

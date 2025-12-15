@@ -7,7 +7,7 @@ import hashlib
 from database.db import get_connection
 
 
-# ---------------- MODERN BUTTON ----------------
+
 class ModernButton(tk.Button):
     def __init__(self, master=None, **kwargs):
         super().__init__(
@@ -32,7 +32,7 @@ def hash_password(pw: str) -> str:
     return hashlib.sha256(pw.encode()).hexdigest()
 
 
-# ---------------- USERS MANAGEMENT ----------------
+
 class UsersManagementScreen(tk.Frame):
 
     def __init__(self, master, on_back, *args, **kwargs):
@@ -56,19 +56,18 @@ class UsersManagementScreen(tk.Frame):
             except:
                 pass
 
-        # ------------ LISTBOX ------------
         self.user_listbox = tk.Listbox(self, width=53, height=18, font=("Arial", 12))
         self.user_listbox.place(x=150, y=180)
         self.user_listbox.bind("<<ListboxSelect>>", self.on_select)
 
-        # ------------ FIND USER ------------
+
         self.search_entry = tk.Entry(self, width=25, font=("Arial", 12))
         self.search_entry.place(x=150, y=530)
 
         ModernButton(self, text="Find User", width=5, command=self.find_user)\
             .place(x=370, y=530)
 
-        # ------------ INPUTS (RIGHT) ------------
+
         self.fn_entry = tk.Entry(self, width=30, font=("Arial", 13))
         self.fn_entry.place(x=760, y=190)
 
@@ -86,7 +85,7 @@ class UsersManagementScreen(tk.Frame):
         )
         self.role_combo.place(x=750, y=445)
 
-        # ------------ BUTTONS ------------
+
         ModernButton(self, text="Add User", width=12, command=self.add_user)\
             .place(x=600, y=550)
 
@@ -105,7 +104,7 @@ class UsersManagementScreen(tk.Frame):
         self.load_roles()
         self.load_users()
 
-    # ---------------- LOAD ROLES ----------------
+
     def load_roles(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -113,7 +112,7 @@ class UsersManagementScreen(tk.Frame):
         self.role_combo["values"] = [r.RoleName for r in cur.fetchall()]
         conn.close()
 
-    # ---------------- LOAD USERS ----------------
+
     def load_users(self):
         self.user_listbox.delete(0, tk.END)
         self.current_user_id = None
@@ -144,7 +143,7 @@ class UsersManagementScreen(tk.Frame):
         conn.close()
         self.clear_inputs()
 
-    # ---------------- CLEAR INPUTS ----------------
+
     def clear_inputs(self):
         self.fn_entry.delete(0, tk.END)
         self.ln_entry.delete(0, tk.END)
@@ -152,7 +151,7 @@ class UsersManagementScreen(tk.Frame):
         self.dob_entry.delete(0, tk.END)
         self.role_combo.set("")
 
-    # ---------------- SELECT USER ----------------
+
     def on_select(self, event):
         sel = self.user_listbox.curselection()
         if not sel:
@@ -186,7 +185,7 @@ class UsersManagementScreen(tk.Frame):
         self.email_entry.delete(0, tk.END)
         self.email_entry.insert(0, u.Email)
 
-        # ✅ FIXED BIRTHDATE
+
         self.dob_entry.delete(0, tk.END)
         if u.BirthDate:
             bd = u.BirthDate
@@ -196,7 +195,7 @@ class UsersManagementScreen(tk.Frame):
 
         self.role_combo.set(u.RoleName)
 
-    # ---------------- ADD USER ----------------
+
     def add_user(self):
         fname = self.fn_entry.get().strip()
         lname = self.ln_entry.get().strip()
@@ -239,8 +238,8 @@ class UsersManagementScreen(tk.Frame):
         self.load_users()
         messagebox.showinfo("Added", "User added. Default password: 1234")
 
-    # ---------------- UPDATE USER ----------------
-    # ---------------- UPDATE USER ----------------
+
+
     def update_user(self):
         if not self.current_user_id:
             return
@@ -268,7 +267,7 @@ class UsersManagementScreen(tk.Frame):
         """, (self.current_user_id,))
         current = cur.fetchone()
 
-        # 🔹 Hiçbir şey değişmediyse
+        #  Hiçbir şey değişmediyse
         if (
                 current.FirstName == fname and
                 current.LastName == lname and
@@ -304,7 +303,7 @@ class UsersManagementScreen(tk.Frame):
         self.load_users()
         messagebox.showinfo("Updated", "User updated successfully.")
 
-    # ---------------- DELETE USER (SOFT) ----------------
+
     def delete_user(self):
         if not self.current_user_id:
             return
@@ -321,7 +320,7 @@ class UsersManagementScreen(tk.Frame):
         self.load_users()
         messagebox.showinfo("Deleted", "User deactivated.")
 
-    # ---------------- FIND USER ----------------
+
     def find_user(self):
         key = self.search_entry.get().strip().lower()
         if not key:
@@ -337,7 +336,7 @@ class UsersManagementScreen(tk.Frame):
 
         messagebox.showinfo("Not found", "No matching user.")
 
-    # ---------------- REVIEW ALL ----------------
+
     def review_all(self):
         win = tk.Toplevel(self)
         win.title("All Users")

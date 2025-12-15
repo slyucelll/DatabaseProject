@@ -30,7 +30,7 @@ class HotelManagementScreen(tk.Frame):
         self.on_back = on_back
         self.current_hotel_id = None
 
-        # ================= BACKGROUND =================
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -41,7 +41,7 @@ class HotelManagementScreen(tk.Frame):
             self.bg_image = ImageTk.PhotoImage(img)
             tk.Label(self, image=self.bg_image).place(x=0, y=0, relwidth=1, relheight=1)
 
-        # ================= LEFT LIST =================
+
         self.hotels_listbox = tk.Listbox(self, width=48, height=20, font=("Arial", 11))
         self.hotels_listbox.place(relx=0.10, rely=0.23)
         self.hotels_listbox.bind("<<ListboxSelect>>", self.on_hotel_selected)
@@ -52,7 +52,7 @@ class HotelManagementScreen(tk.Frame):
         ModernButton(self, text="Search", command=self.search_hotels).place(relx=0.10, rely=0.82)
         ModernButton(self, text="Reload", command=self.load_hotels).place(relx=0.10, rely=0.82)
 
-        # ================= RIGHT FORM =================
+
         base_x = 0.61
 
         self.name_entry = tk.Entry(self, width=38)
@@ -83,7 +83,7 @@ class HotelManagementScreen(tk.Frame):
         self.status_combo.place(relx=base_x, rely=0.75)
         self.status_combo.set("Active")
 
-        # ================= BUTTONS =================
+
         ModernButton(self, text="Add Hotel", command=self.add_hotel).place(relx=0.55, rely=0.90)
         ModernButton(self, text="Update Selected", command=self.update_hotel).place(relx=0.68, rely=0.90)
         ModernButton(self, text="Delete Selected", command=self.delete_hotel).place(relx=0.83, rely=0.90)
@@ -92,7 +92,7 @@ class HotelManagementScreen(tk.Frame):
         self.load_countries()
         self.load_hotels()
 
-    # ================= LOADERS =================
+
     def load_countries(self):
         conn = get_connection()
         cur = conn.cursor()
@@ -136,7 +136,7 @@ class HotelManagementScreen(tk.Frame):
         conn.close()
         self.clear_inputs()
 
-    # ================= CRUD =================
+
     def add_hotel(self):
         if not self.city_combo.get():
             messagebox.showerror("Error", "Select country and city.")
@@ -244,7 +244,7 @@ class HotelManagementScreen(tk.Frame):
         self.load_hotels()
         messagebox.showinfo("Deactivated", "Hotel and its rooms deactivated.")
 
-    # ================= SELECT =================
+
     def on_hotel_selected(self, event=None):
         sel = self.hotels_listbox.curselection()
         if not sel:

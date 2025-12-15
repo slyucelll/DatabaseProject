@@ -34,7 +34,7 @@ class CreateTravelPlanScreen(tk.Frame):
         self.master = master
         self.on_back = on_back
 
-        # ================= BACKGROUND =================
+
         img_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
             "images",
@@ -44,7 +44,7 @@ class CreateTravelPlanScreen(tk.Frame):
         self.bg_image = ImageTk.PhotoImage(img)
         tk.Label(self, image=self.bg_image).place(x=0, y=0, relwidth=1, relheight=1)
 
-        # ================= BUDGET MAP =================
+        #  BUDGET MAP
         self.budget_value_map = {
             "< 500": 500,
             "500 - 1,000": 1000,
@@ -53,7 +53,7 @@ class CreateTravelPlanScreen(tk.Frame):
             "> 5,000": 10000
         }
 
-        # ================= INPUTS =================
+        #  INPUTS
         self.plan_name_entry = tk.Entry(self, width=30, font=("Arial", 13))
         self.plan_name_entry.place(relx=0.35, rely=0.30, anchor="w")
 
@@ -87,7 +87,7 @@ class CreateTravelPlanScreen(tk.Frame):
         ModernButton(self, text="← Back", width=10, command=self.on_back)\
             .place(relx=0.23, rely=0.83, anchor="center")
 
-        # 🔴 TEXT GÜNCELLENDİ
+
         ModernButton(
             self,
             text="SEARCH HOTEL",
@@ -135,7 +135,7 @@ class CreateTravelPlanScreen(tk.Frame):
         self.city_combo.set("")
         self.city_combo["values"] = names
 
-    # ================= SEARCH HOTEL =================
+    #  SEARCH HOTEL
     def go_search_hotels(self):
         plan_name = self.plan_name_entry.get().strip()
         country = self.country_combo.get()
